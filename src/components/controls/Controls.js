@@ -8,11 +8,8 @@ import edit from "../../images/edit.svg";
 import "./Controls.css";
 import { PresetContext } from "../presets/PresetProvider";
 import { SequenceContext } from "../sequences/SequenceProvider";
-// import {Player} from "../player/Player"
 
-
-
-export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo }) => {
+export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, tempo }) => {
   const { presets, getPresets, addPreset } = useContext(PresetContext);
   const { addSequence, editSequence } = useContext(SequenceContext);
 
@@ -127,7 +124,7 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo })
           id={"arrow-left"}
         />
         <div className={"menu-screen"} id={`preset--${presetObj.id}`}>
-          {presetObj.name}
+          {presetObj.name} {tempo}
         </div>
         <img alt=""
           onClick={(event) => {

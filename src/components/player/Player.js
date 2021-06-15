@@ -71,6 +71,7 @@ export const Player = ({ presetObj, playing, counterTimeValue }) => {
   };
 
   const Scheduler = (preset) => {
+    console.log(counterTimeValue)
     const hh = preset.sequences[0].pattern;
     const sd = preset.sequences[1].pattern;
     const bd = preset.sequences[2].pattern;
@@ -97,14 +98,14 @@ export const Player = ({ presetObj, playing, counterTimeValue }) => {
     let timer;
     if (playing) {
       audioContext.resume();
-      counter = 0;
       timer = setInterval(() => {
         Scheduler(presetObj);
       }, 0);
     } else {
       audioContext.suspend();
+      counter = 0;
     }
     return () => clearInterval(timer);
-  }, [playing, presetObj]);
+  }, [playing, presetObj, counterTimeValue]);
   return "";
 };

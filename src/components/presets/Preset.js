@@ -29,7 +29,7 @@ export const Preset = () => {
   return (
     <>
       <div className="drum-wrapper">
-        <Controls presetObj={preset} setPreset={setPreset} preset={preset} setPlaying={setPlaying} setTempo={setTempo} />
+        <Controls presetObj={preset} setPreset={setPreset} preset={preset} setPlaying={setPlaying} setTempo={setTempo} tempo={tempo} />
         <MatrixGenerator
           key={preset.id}
           presetObj={preset}
