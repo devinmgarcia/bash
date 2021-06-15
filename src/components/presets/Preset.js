@@ -8,6 +8,8 @@ export const Preset = () => {
   const { presets, getPresets, setPresets } = useContext(PresetContext);
   const [preset, setPreset] = useState({ name: "", sequences: [] });
   const [playing, setPlaying] = useState("")
+  let [tempo, setTempo] = useState(120)
+  let [counterTimeValue, setCounterTimeValue] = useState()
 
   useEffect(() => {
     getPresets();
@@ -16,19 +18,24 @@ export const Preset = () => {
   useEffect(() => {
     const initialPreset = presets[0] || { name: "", sequences: [] };
     setPreset(initialPreset);
-    console.log("set initial preset");
   }, [presets]);
+
+  useEffect(()=>{
+    let secondsPerBeat = 60 / tempo;
+    counterTimeValue = secondsPerBeat / 4;
+    setCounterTimeValue(counterTimeValue)
+  },[tempo])
 
   return (
     <>
       <div className="drum-wrapper">
-        <Controls presetObj={preset} setPreset={setPreset} preset={preset} setPlaying={setPlaying} />
+        <Controls presetObj={preset} setPreset={setPreset} preset={preset} setPlaying={setPlaying} setTempo={setTempo} />
         <MatrixGenerator
           key={preset.id}
           presetObj={preset}
           setPreset={setPreset}
         />
-        <Player presetObj={preset} playing={playing} />
+        <Player presetObj={preset} playing={playing} counterTimeValue={counterTimeValue}/>
       </div>
     </>
   );

@@ -6,9 +6,9 @@ import hihatUrl from "../../samples/hh_sample.mp3";
 let audioContext = new AudioContext();
 let futureTickTime = audioContext.currentTime;
 let counter = 0;
-let tempo = 120;
-let secondsPerBeat = 60 / tempo;
-let counterTimeValue = secondsPerBeat / 4;
+// let tempo = 120;
+// let secondsPerBeat = 60 / tempo;
+// let counterTimeValue = secondsPerBeat / 4;
 let kick;
 let snare;
 let hihat;
@@ -44,7 +44,7 @@ function playSample(audioContext, audioBuffer, time) {
   return sampleSource;
 }
 
-export const Player = ({ presetObj, playing }) => {
+export const Player = ({ presetObj, playing, counterTimeValue }) => {
 
   const stepHead = (currentStep, seqLength) => {
     if (currentStep === 0) {
@@ -85,7 +85,7 @@ export const Player = ({ presetObj, playing }) => {
         playSample(audioContext, kick, futureTickTime);
       }
 
-        stepHead(counter, 15);
+      stepHead(counter, 15);
       futureTickTime += counterTimeValue;
       counter++;
       if (counter > 15) {
@@ -97,7 +97,7 @@ export const Player = ({ presetObj, playing }) => {
     let timer;
     if (playing) {
       audioContext.resume();
-      counter = 0
+      counter = 0;
       timer = setInterval(() => {
         Scheduler(presetObj);
       }, 0);

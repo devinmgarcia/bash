@@ -12,7 +12,7 @@ import { SequenceContext } from "../sequences/SequenceProvider";
 
 
 
-export const Controls = ({ presetObj, setPreset, preset, setPlaying }) => {
+export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo }) => {
   const { presets, getPresets, addPreset } = useContext(PresetContext);
   const { addSequence, editSequence } = useContext(SequenceContext);
 
@@ -108,6 +108,11 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying }) => {
     setPlaying(false)
   }
 
+  const TempoSlider = (event) => {
+    event.preventDefault()
+    setTempo(event.target.value)
+  }
+
   return (
     <div className={"controls-wrapper"}>
       <div className={"drum-logo"}>BASH</div>
@@ -151,9 +156,10 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying }) => {
           type={"range"}
           min={"30"}
           max={"300"}
-          value={"120"}
+          defaultValue={"120"}
           class={"slider"}
           id={"myRange"}
+          onChange={TempoSlider}
         />
       </div>
       <div class={"transport"}>
