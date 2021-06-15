@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import kickUrl from "../../samples/bass_sample.mp3"
-import snareUrl from "../../samples/clap_sample.mp3"
-import hihatUrl from "../../samples/hh_sample.mp3"
+import kickUrl from "../../samples/bass_sample.mp3";
+import snareUrl from "../../samples/clap_sample.mp3";
+import hihatUrl from "../../samples/hh_sample.mp3";
 
 let audioContext = new AudioContext();
 let futureTickTime = audioContext.currentTime;
@@ -14,40 +14,63 @@ let snare;
 let hihat;
 
 async function getFile(audioContext, filepath) {
-    const response = await fetch(filepath);
-    const arrayBuffer = await response.arrayBuffer();
-    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
-    return audioBuffer;
-  }
+  const response = await fetch(filepath);
+  const arrayBuffer = await response.arrayBuffer();
+  const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+  return audioBuffer;
+}
 
-  async function setupSample(sampleUrl) {
-    const filePath = sampleUrl;
-    const sample = await getFile(audioContext, filePath);
-    return sample;
-  }
+async function setupSample(sampleUrl) {
+  const filePath = sampleUrl;
+  const sample = await getFile(audioContext, filePath);
+  return sample;
+}
 
-  setupSample(kickUrl).then((sample) => {
-    kick = sample;
-  });
-  setupSample(snareUrl).then((sample) => {
-    snare = sample;
-  });
-  setupSample(hihatUrl).then((sample) => {
-    hihat = sample;
-  });
+setupSample(kickUrl).then((sample) => {
+  kick = sample;
+});
+setupSample(snareUrl).then((sample) => {
+  snare = sample;
+});
+setupSample(hihatUrl).then((sample) => {
+  hihat = sample;
+});
 
-  function playSample(audioContext, audioBuffer, time) {
-    const sampleSource = audioContext.createBufferSource();
-    sampleSource.buffer = audioBuffer;
-    sampleSource.connect(audioContext.destination);
-    sampleSource.start(time);
-    return sampleSource;
-  }
+function playSample(audioContext, audioBuffer, time) {
+  const sampleSource = audioContext.createBufferSource();
+  sampleSource.buffer = audioBuffer;
+  sampleSource.connect(audioContext.destination);
+  sampleSource.start(time);
+  return sampleSource;
+}
 
-export const Player = ({presetObj, playing}) => {
+export const Player = ({ presetObj, playing }) => {
 
-    const Scheduler = (preset) => {
+  const stepHead = (currentStep, seqLength) => {
+    if (currentStep === 0) {
+      if (
+        document
+          .getElementById(`column--${seqLength}`)
+          .classList.contains("column-border")
+      ) {
+        document
+          .getElementById(`column--${seqLength}`)
+          .classList.remove("column-border");
+      }
+      document
+        .getElementById(`column--${currentStep}`)
+        .classList.add("column-border");
+    } else if (currentStep > 0 && currentStep <= seqLength) {
+      document
+        .getElementById(`column--${currentStep - 1}`)
+        .classList.remove("column-border");
+      document
+        .getElementById(`column--${currentStep}`)
+        .classList.add("column-border");
+    }
+  };
 
+  const Scheduler = (preset) => {
     const hh = preset.sequences[0].pattern;
     const sd = preset.sequences[1].pattern;
     const bd = preset.sequences[2].pattern;
@@ -62,7 +85,7 @@ export const Player = ({presetObj, playing}) => {
         playSample(audioContext, kick, futureTickTime);
       }
 
-      //   stepHead(counter, 15);
+        stepHead(counter, 15);
       futureTickTime += counterTimeValue;
       counter++;
       if (counter > 15) {
@@ -73,12 +96,13 @@ export const Player = ({presetObj, playing}) => {
   useEffect(() => {
     let timer;
     if (playing) {
-      audioContext.resume()
+      audioContext.resume();
+      counter = 0
       timer = setInterval(() => {
-        Scheduler(presetObj)
+        Scheduler(presetObj);
       }, 0);
-    } else{
-      audioContext.suspend()
+    } else {
+      audioContext.suspend();
     }
     return () => clearInterval(timer);
   }, [playing, presetObj]);
