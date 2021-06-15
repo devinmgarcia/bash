@@ -1,0 +1,85 @@
+.controls-wrapper {
+    background-color: rgb(184, 184, 184);
+    display: flex;
+}
+
+.controls {
+    padding: .3rem;
+    border: rgb(226, 226, 226) solid 3px;
+    border-style: groove;
+    margin: 0rem .3rem 0rem .3rem;
+    border-radius: 50%;
+}
+
+.right-side-controls {
+    margin-left: auto;
+}
+
+.drum-logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin-left: .3rem;
+}
+
+.preset-menu {
+    display: flex;
+    align-items: center;
+    margin-left: .3rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: .6rem;
+    color: rgba(0, 0, 0, 0.63);
+}
+
+.menu-screen {
+    background-color: rgb(161, 173, 145);
+    height: 70%;
+    width: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(226, 226, 226) solid 1px;
+    border-style: groove;
+}
+
+.slidecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: rgb(53, 53, 53);
+    height: 3px;
+}
+
+input[type="range"]::-moz-range-track {
+    background: rgb(53, 53, 53);
+    height: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 30px;
+    width: 15px;
+    background: rgb(184, 184, 184);
+    margin-top: -13px;
+    border-radius: 30%;
+    border: rgb(180, 180, 180) groove 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 30px;
+    width: 15px;
+    background: rgb(184, 184, 184);
+    margin-top: -13px;
+    border-radius: 30%;
+}
