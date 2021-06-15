@@ -46,11 +46,11 @@ async function getFile(audioContext, filepath) {
 
 export const Player = ({presetObj, playing}) => {
 
-    const Scheduler = (presetObj) => {
+    const Scheduler = (preset) => {
 
-    const hh = presetObj.sequences[0].pattern;
-    const sd = presetObj.sequences[1].pattern;
-    const bd = presetObj.sequences[2].pattern;
+    const hh = preset.sequences[0].pattern;
+    const sd = preset.sequences[1].pattern;
+    const bd = preset.sequences[2].pattern;
     if (futureTickTime < audioContext.currentTime + 0.1) {
       if (hh[counter]) {
         playSample(audioContext, hihat, futureTickTime);
@@ -76,11 +76,11 @@ export const Player = ({presetObj, playing}) => {
       audioContext.resume()
       timer = setInterval(() => {
         Scheduler(presetObj)
-      }, futureTickTime);
+      }, 0);
     } else{
       audioContext.suspend()
     }
     return () => clearInterval(timer);
-  }, [playing]);
+  }, [playing, presetObj]);
   return "";
 };

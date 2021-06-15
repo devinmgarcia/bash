@@ -13,8 +13,7 @@ import { SequenceContext } from "../sequences/SequenceProvider";
 
 
 export const Controls = ({ presetObj, setPreset, preset, setPlaying }) => {
-  const { presets, getPresets, addPreset } =
-    useContext(PresetContext);
+  const { presets, getPresets, addPreset } = useContext(PresetContext);
   const { addSequence, editSequence } = useContext(SequenceContext);
 
   useEffect(() => {
