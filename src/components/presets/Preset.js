@@ -3,6 +3,7 @@ import { Controls } from "../controls/Controls";
 import { MatrixGenerator } from "../matrix/MatrixGenerator";
 import { PresetContext } from "./PresetProvider";
 import { Player } from "../player/Player";
+import { PopUps } from "../popups/PopUps";
 
 export const Preset = () => {
   const { presets, getPresets, setPresets } = useContext(PresetContext);
@@ -10,7 +11,9 @@ export const Preset = () => {
   const [playing, setPlaying] = useState("")
   let [tempo, setTempo] = useState(120)
   let [counterTimeValue, setCounterTimeValue] = useState()
-
+  const [namePreset, setNamePreset] = useState()
+  
+  console.log(preset)
   useEffect(() => {
     getPresets();
   }, []);
@@ -29,7 +32,7 @@ export const Preset = () => {
   return (
     <>
       <div className="drum-wrapper">
-        <Controls presetObj={preset} setPreset={setPreset} preset={preset} setPlaying={setPlaying} setTempo={setTempo} tempo={tempo} />
+        <Controls presetObj={preset} setPreset={setPreset} preset={preset} setPlaying={setPlaying} setTempo={setTempo} tempo={tempo} setNamePreset={setNamePreset} />
         <MatrixGenerator
           key={preset.id}
           presetObj={preset}
@@ -37,6 +40,7 @@ export const Preset = () => {
         />
         <Player presetObj={preset} playing={playing} counterTimeValue={counterTimeValue}/>
       </div>
+        <PopUps presetObj={preset} namePreset={namePreset} setNamePreset={setNamePreset}/>
     </>
   );
 };

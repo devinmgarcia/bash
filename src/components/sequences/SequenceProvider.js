@@ -21,7 +21,7 @@ export const SequenceProvider = (props) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(sequenceObj)
-    }).then(getSequences) // do i need this?
+    }).then(getSequences)
   }
 
   const editSequence = (sequenceObj) => {
@@ -34,6 +34,12 @@ export const SequenceProvider = (props) => {
       }).then(getSequences)
   };
 
+  const deleteSequence = (sequenceObj) => {
+    return fetch(`${api}/sequences/${sequenceObj.id}`, {
+        method: "DELETE"
+    }).then(getSequences)
+}
+
   return (
     <SequenceContext.Provider
       value={{
@@ -41,7 +47,8 @@ export const SequenceProvider = (props) => {
         setSequences,
         getSequences,
         addSequence,
-        editSequence
+        editSequence,
+        deleteSequence
       }}
     >
       {props.children}

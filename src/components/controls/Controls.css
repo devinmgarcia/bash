@@ -34,7 +34,7 @@
 .menu-screen {
     background-color: rgb(161, 173, 145);
     height: 70%;
-    width: 10rem;
+    width: 15rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,8 +72,8 @@ input[type="range"]::-webkit-slider-thumb {
     width: 15px;
     background: rgb(184, 184, 184);
     margin-top: -13px;
-    border-radius: 30%;
-    border: rgb(180, 180, 180) groove 2px;
+    border-radius: 20%;
+    border: rgb(97, 97, 97) solid 2px;
 }
 
 input[type="range"]::-moz-range-thumb {

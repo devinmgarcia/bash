@@ -1,0 +1,21 @@
+.navbar {
+    color: white;
+    background-color: rgb(112, 112, 112);
+    display: flex;
+}
+
+.right-container {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-size: 5rem;
+    margin-left: 1rem;
+}
+
+.right-side-item {
+    margin: 1rem;
+}

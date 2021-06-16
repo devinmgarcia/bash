@@ -5,13 +5,18 @@ import play from "../../images/play.svg";
 import pause from "../../images/pause.svg";
 import save from "../../images/save.svg";
 import edit from "../../images/edit.svg";
+import trash from "../../images/trash.svg";
 import "./Controls.css";
 import { PresetContext } from "../presets/PresetProvider";
 import { SequenceContext } from "../sequences/SequenceProvider";
 
-export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, tempo }) => {
-  const { presets, getPresets, addPreset } = useContext(PresetContext);
-  const { addSequence, editSequence } = useContext(SequenceContext);
+export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, tempo, setNamePreset }) => {
+  const { presets, getPresets, addPreset, deletePreset, globalPresets, getGlobalPresets } = useContext(PresetContext);
+  const { addSequence, editSequence, deleteSequence } = useContext(SequenceContext);
+
+  useEffect(()=>{
+    getGlobalPresets()
+  },[addSequence])
 
   useEffect(() => {
     getPresets();
@@ -19,23 +24,26 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
 
   const TogglePreset = (increment) => {
     //find the next presets index postion based off of the increment value
-    const presetIndex =
-      presets.findIndex((preset) => preset.id === presetObj.id) + increment;
+    const presetIndex = presets.findIndex((preset) => preset.id === presetObj.id) + increment;
       // check if that preset index exists in the presets array
     if (presets[presetIndex]) {
       // if the next preset is the "user preset" in the database, and there is a preset after it, we skip over the "user preset"
       if(presets[presetIndex].id === 4 && presets[presetIndex+1]){
         if (increment > 0){
           setPreset(presets[presetIndex+1]);
+          console.log(presets[presetIndex+1])
         }else {
           setPreset(presets[presetIndex-1]);
+          console.log(presets[presetIndex-1])
         }
       }
       else {
         setPreset(presets[presetIndex]);
+        console.log(presets[presetIndex])
       }
     } else if (!presets[presetIndex] && increment > 0 && preset.id !== presets[3].id) {
       setPreset(presets[3]);
+      console.log(presets[3])
     }
   };
 
@@ -46,28 +54,31 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
         userEditable: true,
         userId: parseInt(localStorage.getItem("bash_user")),
       };
-      addPreset(newPreset);
+     
 
       const HHSequenceObj = {
         inst: "hh",
         pattern: preset.sequences[0].pattern,
-        presetId: [...presets].pop().id + 1,
+        presetId: [...globalPresets].pop().id + 1,
       };
-      addSequence(HHSequenceObj);
+      // addSequence(HHSequenceObj);
 
       const SDSequenceObj = {
         inst: "sd",
         pattern: preset.sequences[1].pattern,
-        presetId: [...presets].pop().id + 1,
+        presetId: [...globalPresets].pop().id + 1,
       };
-      addSequence(SDSequenceObj);
+      // addSequence(SDSequenceObj);
 
       const BDSequenceObj = {
         inst: "bd",
         pattern: preset.sequences[2].pattern,
-        presetId: [...presets].pop().id + 1,
+        presetId: [...globalPresets].pop().id + 1,
       };
-      addSequence(BDSequenceObj);
+      // addSequence(BDSequenceObj);
+
+      addPreset(newPreset, HHSequenceObj,SDSequenceObj, BDSequenceObj);
+
     } else if (preset.userEditable) {
       const HHSequenceObj = {
         id: preset.sequences[0].id,
@@ -95,7 +106,21 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
     }
   };
 
-  const EditPreset = () => {};
+  const EditPreset = () => {
+    setNamePreset(true)
+  };
+
+  const DeletePreset = (event) => {
+    event.preventDefault()
+    if(preset.userEditable && preset.userId !== 0) {
+      const sequencesToBeDeleted = []
+      for (const sequence of preset.sequences) {
+        const deletedSequence = deleteSequence(sequence)
+        sequencesToBeDeleted.push(deletedSequence)
+      }
+      Promise.all(sequencesToBeDeleted).then(()=>{deletePreset(preset)})
+    } 
+  };
 
   const Play = () => {
     setPlaying(true)
@@ -146,6 +171,12 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
           className={"controls editButton"}
           id={"edit"}
           src={edit}
+        />
+        <img alt=""
+          onClick={DeletePreset}
+          className={"controls deleteButton"}
+          id={"delete"}
+          src={trash}
         />
       </div>
       <div className={"slidecontainer right-side-controls"}>
