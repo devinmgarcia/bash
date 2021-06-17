@@ -52,6 +52,7 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
   };
 
   const SavePreset = () => {
+    setEndOfPresets(false)
     if (preset.userEditable && preset.userId === 0) {
       const newPreset = {
         name: preset.name,
