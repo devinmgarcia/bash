@@ -13,7 +13,6 @@ export const Preset = () => {
   let [counterTimeValue, setCounterTimeValue] = useState()
   const [namePreset, setNamePreset] = useState()
   
-  console.log(preset)
   useEffect(() => {
     getPresets();
   }, []);
@@ -31,6 +30,7 @@ export const Preset = () => {
 
   return (
     <>
+    <section className="drum-section">
       <div className="drum-wrapper">
         <Controls presetObj={preset} setPreset={setPreset} preset={preset} setPlaying={setPlaying} setTempo={setTempo} tempo={tempo} setNamePreset={setNamePreset} />
         <MatrixGenerator
@@ -41,6 +41,7 @@ export const Preset = () => {
         <Player presetObj={preset} playing={playing} counterTimeValue={counterTimeValue}/>
       </div>
         <PopUps presetObj={preset} namePreset={namePreset} setNamePreset={setNamePreset}/>
+    </section>
     </>
   );
 };
