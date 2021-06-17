@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import leftArrow from "../../images/arrow-left.svg";
 import rightArrow from "../../images/arrow-right.svg";
 import play from "../../images/play.svg";
@@ -13,6 +13,7 @@ import { SequenceContext } from "../sequences/SequenceProvider";
 export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, tempo, setNamePreset }) => {
   const { presets, getPresets, addPreset, deletePreset, globalPresets, getGlobalPresets } = useContext(PresetContext);
   const { addSequence, editSequence, deleteSequence } = useContext(SequenceContext);
+  const [endOfPresets, setEndOfPresets] = useState()
 
   useEffect(()=>{
     getGlobalPresets()
@@ -28,22 +29,25 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
       // check if that preset index exists in the presets array
     if (presets[presetIndex]) {
       // if the next preset is the "user preset" in the database, and there is a preset after it, we skip over the "user preset"
-      if(presets[presetIndex].id === 4 && presets[presetIndex+1]){
+      if(presets[presetIndex].name === "User Preset" && presets[presetIndex].userId === 0 && presets[presetIndex+1]){
         if (increment > 0){
           setPreset(presets[presetIndex+1]);
-          console.log(presets[presetIndex+1])
         }else {
           setPreset(presets[presetIndex-1]);
-          console.log(presets[presetIndex-1])
+        }
+      } else {
+        if (!endOfPresets || increment < 1) {
+          if (endOfPresets){
+            setEndOfPresets(false)
+            setPreset(presets[presets.length -1])
+          } else {
+            setPreset(presets[presetIndex]);
+          }
         }
       }
-      else {
-        setPreset(presets[presetIndex]);
-        console.log(presets[presetIndex])
-      }
-    } else if (!presets[presetIndex] && increment > 0 && preset.id !== presets[3].id) {
+    } else if (!presets[presetIndex] && increment > 0 && preset.userId !== 0) {
+      setEndOfPresets(true)
       setPreset(presets[3]);
-      console.log(presets[3])
     }
   };
 

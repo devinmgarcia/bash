@@ -1,8 +1,15 @@
+.drum-section {
+    margin-top: 13rem;
+    display: flex;
+    justify-content: center;
+}
+
 .drum-wrapper {
     display: inline-block;
     background-color: rgb(184, 184, 184);
     border-radius: 5px;
     padding: .5rem;
+    box-shadow: -10px 3px 15px rgba(0, 0, 0, 1);
 }
 
 .drums {
