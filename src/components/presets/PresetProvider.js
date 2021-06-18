@@ -40,15 +40,9 @@ export const PresetProvider = (props) => {
       },
       body: JSON.stringify(presetObj),
     })
-      .then(() => {
-        addSequence(HHSequenceObj);
-      })
-      .then(() => {
-        addSequence(SDSequenceObj);
-      })
-      .then(() => {
-        addSequence(BDSequenceObj);
-      })
+      .then(() => addSequence(HHSequenceObj))
+      .then(() => addSequence(SDSequenceObj))
+      .then(() => addSequence(BDSequenceObj))
       .then(getPresets);
   };
 

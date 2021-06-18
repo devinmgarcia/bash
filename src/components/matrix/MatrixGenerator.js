@@ -12,9 +12,9 @@ export const MatrixGenerator = ({ presetObj, setPreset }) => {
     const presetSequences = presetObj.sequences.filter(
       (sequence) => sequence.presetId === presetObj.id
     ) || { pattern: [] };
-    setHHSequence(presetSequences[0]);
-    setSDSequence(presetSequences[1]);
-    setBDSequence(presetSequences[2]);
+    setHHSequence(presetSequences.find(preset=>preset.inst === "hh"));
+    setSDSequence(presetSequences.find(preset=>preset.inst === "sd"));
+    setBDSequence(presetSequences.find(preset=>preset.inst === "bd"));
   }, [sequences]);
 
   useEffect(() => {
