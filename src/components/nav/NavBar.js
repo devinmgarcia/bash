@@ -1,9 +1,13 @@
+import { useHistory } from "react-router-dom"
 import "./NavBar.css"
 
 export const NavBar = () => {
 
+    const history = useHistory()
+
     const Logout = () => {
         localStorage.removeItem("bash_user")
+        history.push("/login")
     }
 
     return (
