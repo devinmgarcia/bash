@@ -1,6 +1,6 @@
 .navbar {
-    color: rgb(0, 0, 0);
-    background-color: rgb(112, 112, 112);
+    color: white;
+    /* background-color: rgb(112, 112, 112); */
     display: flex;
 }
 
@@ -18,4 +18,9 @@
 
 .right-side-item {
     margin: 1rem;
+}
+
+.logout-icon {
+    height: 4rem;
+    width: auto;
 }

@@ -1,4 +1,70 @@
-.h1,
+.login-section {
+    margin-top: 6rem;
+}
+
+.register-section {
+    margin-top: 15rem;
+    display: flex;
+    justify-content: center;
+}
+
+.title-center {
+    display: flex;
+    justify-content: center;
+}
+
+.title-wrapper {
+    display: inline-block;
+    line-height: 4.6rem;
+}
+
+.login-subtext {
+    color: white;
+    text-align: right;
+    margin-right: .8rem;
+}
+
+.login-title {
+    margin-top: 5rem;
+    color: white;
+    font-size: 10rem;
+    text-align: center;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.form--login {
+    border-radius: 2%;
+    width: 25rem;
+    background-color: rgba(0, 0, 0, 0.479);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.link--register {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.link:hover {
+    color: goldenrod;
+}
+
+.fieldset {
+    border: 0;
+}
+
+
+/* .h1,
 h1 {
     font-size: 2.5rem;
 }
@@ -65,4 +131,4 @@ fieldset {
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
-}
+} */
