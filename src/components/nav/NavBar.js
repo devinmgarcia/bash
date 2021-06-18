@@ -8,7 +8,7 @@ export const NavBar = () => {
 
     return (
         <div className="navbar">
-            <div className="logo">Bash</div>
+            <div className="logo">BASH</div>
             <div className="right-container">
             <div onClick={Logout} className="logout right-side-item">Logout</div>
             </div>
