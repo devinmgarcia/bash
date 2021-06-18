@@ -2,6 +2,12 @@
     margin-top: 6rem;
 }
 
+.register-section {
+    margin-top: 15rem;
+    display: flex;
+    justify-content: center;
+}
+
 .title-center {
     display: flex;
     justify-content: center;
