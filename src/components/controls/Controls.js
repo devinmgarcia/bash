@@ -52,6 +52,7 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
   };
 
   const SavePreset = () => {
+    setEndOfPresets(false)
     if (preset.userEditable && preset.userId === 0) {
       const newPreset = {
         name: preset.name,
@@ -59,30 +60,26 @@ export const Controls = ({ presetObj, setPreset, preset, setPlaying, setTempo, t
         userId: parseInt(localStorage.getItem("bash_user")),
       };
      
-
       const HHSequenceObj = {
         inst: "hh",
         pattern: preset.sequences[0].pattern,
         presetId: [...globalPresets].pop().id + 1,
       };
-      // addSequence(HHSequenceObj);
-
+   
       const SDSequenceObj = {
         inst: "sd",
         pattern: preset.sequences[1].pattern,
         presetId: [...globalPresets].pop().id + 1,
       };
-      // addSequence(SDSequenceObj);
-
+  
       const BDSequenceObj = {
         inst: "bd",
         pattern: preset.sequences[2].pattern,
         presetId: [...globalPresets].pop().id + 1,
       };
-      // addSequence(BDSequenceObj);
 
       addPreset(newPreset, HHSequenceObj,SDSequenceObj, BDSequenceObj);
-
+      
     } else if (preset.userEditable) {
       const HHSequenceObj = {
         id: preset.sequences[0].id,
