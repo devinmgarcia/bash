@@ -7,6 +7,8 @@
 .drum-wrapper {
     display: inline-block;
     background-color: rgb(184, 184, 184);
+    position: relative;
+    /* background-image: url("../../images/brushed.jpg"); */
     border-radius: 5px;
     padding: .5rem;
     box-shadow: -10px 3px 15px rgba(0, 0, 0, 1);

@@ -12,7 +12,7 @@ export const Preset = () => {
   let [tempo, setTempo] = useState(120)
   let [counterTimeValue, setCounterTimeValue] = useState()
   const [namePreset, setNamePreset] = useState()
-  console.log(preset)
+  
   useEffect(() => {
     getPresets();
   }, []);

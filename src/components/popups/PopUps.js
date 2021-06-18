@@ -24,11 +24,24 @@ export const PopUps = ({namePreset, setNamePreset, presetObj}) => {
         setNamePreset(false)
     }
 
+    const cancelNamePreset = () => {
+        setNamePreset(false)
+    }
+
     const NamePreset = () => {
         return (
             <div className="screen-blur center">
                 <div className="popup-wrapper center">
-                    <input onChange={HandleUserInput} type="text"></input><button onClick={savePresetName} defaultValue="Preset Name">Save</button>
+                    <div className="flex-child title">
+                        Preset Name:
+                    </div>
+                    <div className="flex-child">
+                        <input className="edit-input" maxLength={21} onChange={HandleUserInput} type="text"></input>
+                        <div className="buttons-wrapper">
+                            <button className="button" onClick={savePresetName} defaultValue="Preset Name">Save</button>
+                            <button className="button" onClick={cancelNamePreset}>Cancel</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
