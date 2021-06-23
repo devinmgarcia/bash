@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { SequenceContext } from "../sequences/SequenceProvider";
 import "./Matrix.css"
 
-export const MatrixGenerator = ({ presetObj, setPreset }) => {
+export const MatrixGenerator = ({ presetObj, setPreset, patternLength }) => {
   const { sequences, getSequences } = useContext(SequenceContext);
   const [HHSequence, setHHSequence] = useState({})
   const [SDSequence, setSDSequence] = useState({})
@@ -40,7 +40,7 @@ export const MatrixGenerator = ({ presetObj, setPreset }) => {
       setSDSequence(SDSequenceCopy)
       const presetObjCopy = {...presetObj}
       presetObjCopy.sequences[1] = SDSequenceCopy
-      setPreset(presetObjCopy)  
+      setPreset(presetObjCopy)
     }
     if (event.target.id.startsWith("bd")) {
       const [,bdPad] = event.target.id.split("--")
@@ -54,13 +54,12 @@ export const MatrixGenerator = ({ presetObj, setPreset }) => {
     }
   }
 
-
   const Matrix = ({ selectedPreset }) => {
     const sequences = selectedPreset.sequences;
 
     let jsx = [];
 
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < patternLength; i++) {
       jsx.push(
         <div className="pad-column" id={`column--${i}`}>
           {sequences.map((sequence) => {
