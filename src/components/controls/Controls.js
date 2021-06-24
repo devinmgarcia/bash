@@ -87,6 +87,7 @@ export const Controls = ({
     setEndOfPresets(false);
     setInitialRun(false);
     setNamePreset(false);
+    
     if (preset.userEditable && preset.userId === 0) {
       const newPreset = {
         name: userInput,
@@ -140,10 +141,6 @@ export const Controls = ({
     }
   };
 
-  const EditPreset = () => {
-    setNamePreset(true);
-  };
-
   const ChangeTimeSignature = (increment) => {
     if (timeSignature + increment > 0 && timeSignature + increment < 17) {
       setTimeSignature(timeSignature + increment);
@@ -195,6 +192,7 @@ export const Controls = ({
           <div className="flex-child title">Preset Name:</div>
           <div className="flex-child">
             <input
+              defaultValue={preset.name}
               className="edit-input"
               maxLength={21}
               onChange={HandleUserInput}
@@ -274,13 +272,6 @@ export const Controls = ({
             className={"controls saveButton"}
             id={"save"}
             src={save}
-          />
-          <img
-            alt=""
-            onClick={EditPreset}
-            className={"controls editButton"}
-            id={"edit"}
-            src={edit}
           />
           <img
             alt=""

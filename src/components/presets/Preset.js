@@ -24,6 +24,9 @@ export const Preset = () => {
       console.log("initial run")
       const initialPreset = presets[0] || { name: "", sequences: [] };
       setPreset(initialPreset);
+    } else {
+      const newPresetIndex = [...presets].length - 1
+      setPreset(presets[newPresetIndex])
     }
   }, [presets]);
 
@@ -33,19 +36,11 @@ export const Preset = () => {
     setCounterTimeValue(counterTimeValue);
   }, [tempo]);
 
-  useEffect(() => {
-    
+  useEffect(() => { 
     if (preset.sequences.length > 0) {
       setPatternLength(preset.sequences[0].pattern.length);
     }
   }, [preset]);
-  
-  ///////////////////////////////////////////////////////////////////THIS BROKE
-  // useEffect(()=> {
-  //   if (patternLength !== timeSignature){
-  //     setTimeSignature(patternLength)
-  //   }
-  // },[preset])
 
   useEffect(() => {
     const presetCopy = { ...preset };
