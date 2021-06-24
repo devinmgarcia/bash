@@ -31,11 +31,6 @@
     border-radius: 3px;
 }
 
-.selected-pad {
-    background-color: rgb(255, 94, 0);
-    background-image: radial-gradient(rgb(255 214 0 / 59%), transparent);
-}
-
 .column-border {
     background-color: rgba(255, 255, 255, 0.774);
     border-radius: 6px;

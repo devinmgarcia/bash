@@ -14,6 +14,7 @@ export const Preset = () => {
   let [patternLength, setPatternLength] = useState(16);
   let [timeSignature, setTimeSignature] = useState(16);
   let [initialRun, setInitialRun] = useState(true)
+  const [tempTempo, setTempTempo] = useState(16)
 
   useEffect(() => {
     getPresets();
@@ -47,13 +48,18 @@ export const Preset = () => {
     for (const sequence of presetCopy.sequences) {
       if (patternLength < timeSignature){
         sequence.pattern.push(0)
-      } else {
+      } else if (patternLength > timeSignature) {
         sequence.pattern.pop()
       }
     }
     setPreset(presetCopy)
   }, [timeSignature]);
 
+  useEffect(()=>{
+    if (patternLength !== timeSignature) {
+      setTimeSignature(patternLength)
+    }
+  }, [patternLength])
 
   return (
     <>
