@@ -30,6 +30,7 @@ export const Controls = ({
     getPresets,
     addPreset,
     deletePreset,
+    editPreset,
     globalPresets,
     getGlobalPresets,
   } = useContext(PresetContext);
@@ -87,7 +88,7 @@ export const Controls = ({
     setEndOfPresets(false);
     setInitialRun(false);
     setNamePreset(false);
-    
+
     if (preset.userEditable && preset.userId === 0) {
       const newPreset = {
         name: userInput,
@@ -115,6 +116,15 @@ export const Controls = ({
 
       addPreset(newPreset, HHSequenceObj, SDSequenceObj, BDSequenceObj);
     } else if (preset.userEditable) {
+
+      const editedPreset = {
+        id: preset.id,
+        name: userInput,
+        userEditable: true,
+        userId: parseInt(localStorage.getItem("bash_user")),
+      };
+      editPreset(editedPreset)
+
       const HHSequenceObj = {
         id: preset.sequences[0].id,
         inst: "hh",
