@@ -21,7 +21,7 @@
     padding: .2rem;
 }
 
-.pad1 {
+.pad-1 {
     height: 4rem;
     width: 4rem;
     background-color: rgb(197, 110, 110);
@@ -31,7 +31,7 @@
     border-radius: 3px;
 }
 
-.pad2 {
+.pad-2 {
     height: 4rem;
     width: 4rem;
     background-color: rgb(189, 140, 110);
@@ -41,7 +41,7 @@
     border-radius: 3px;
 }
 
-.pad3 {
+.pad-3 {
     height: 4rem;
     width: 4rem;
     background-color: rgb(187, 174, 114);
@@ -51,10 +51,19 @@
     border-radius: 3px;
 }
 
-.pad4 {
+.pad-4 {
     height: 4rem;
     width: 4rem;
     background-color: rgb(130, 182, 111);
+    background-image: radial-gradient(rgb(255 255 255 / 0%), transparent, #717171a6);
+    border: rgb(53, 53, 53) solid 3px;
+    margin-bottom: .2rem;
+    border-radius: 3px;
+}
+
+.pad-inactive {
+    height: 4rem;
+    width: 4rem;
     background-image: radial-gradient(rgb(255 255 255 / 0%), transparent, #717171a6);
     border: rgb(53, 53, 53) solid 3px;
     margin-bottom: .2rem;

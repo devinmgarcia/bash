@@ -59,9 +59,11 @@ export const MatrixGenerator = ({ presetObj, setPreset, patternLength }) => {
 
     let jsx = [];
 
-    for (let i = 0; i < patternLength; i++) {
+    for (let i = 0; i < 16; i++) {
       let beat
-      if (i < 4){
+      if (i > patternLength - 1) {
+        beat = "inactive"
+      } else if (i < 4){
         beat = 1
       } else if (3 < i && i < 8) {
         beat = 2
@@ -77,7 +79,7 @@ export const MatrixGenerator = ({ presetObj, setPreset, patternLength }) => {
               <div
                 onClick={togglePad}
                 id={`${sequence.inst}--${i}`}
-                className={`${'pad'}${beat} ${sequence.pattern[i] ? `active${beat}` : ""}`}
+                className={`${'pad-'}${beat} ${sequence.pattern[i] ? `active${beat}` : ""}`}
               ></div>
             );
           })}
