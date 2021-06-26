@@ -60,6 +60,16 @@ export const MatrixGenerator = ({ presetObj, setPreset, patternLength }) => {
     let jsx = [];
 
     for (let i = 0; i < patternLength; i++) {
+      let beat
+      if (i < 4){
+        beat = 1
+      } else if (3 < i && i < 8) {
+        beat = 2
+      } else if (7 < i && i < 12) {
+        beat = 3
+      } else if (11 < i) {
+        beat = 4
+      }
       jsx.push(
         <div className="pad-column" id={`column--${i}`}>
           {sequences.map((sequence) => {
@@ -67,7 +77,7 @@ export const MatrixGenerator = ({ presetObj, setPreset, patternLength }) => {
               <div
                 onClick={togglePad}
                 id={`${sequence.inst}--${i}`}
-                className={`${'pad'} ${sequence.pattern[i] ? "active" : ""}`}
+                className={`${'pad'}${beat} ${sequence.pattern[i] ? `active${beat}` : ""}`}
               ></div>
             );
           })}
