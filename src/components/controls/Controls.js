@@ -4,7 +4,6 @@ import rightArrow from "../../images/arrow-right.svg";
 import play from "../../images/play.svg";
 import stop from "../../images/stop.svg";
 import save from "../../images/save.svg";
-import edit from "../../images/edit.svg";
 import trash from "../../images/trash.svg";
 import plus from "../../images/plus.svg";
 import minus from "../../images/minus.svg";
@@ -38,6 +37,8 @@ export const Controls = ({
     useContext(SequenceContext);
   const [endOfPresets, setEndOfPresets] = useState();
   let [userInput, setUserInput] = useState("");
+  const [timeTop, setTimeTop] = useState("4")
+  const [timeBot, setTimeBot] = useState("4")
 
   useEffect(() => {
     getGlobalPresets();
@@ -46,6 +47,19 @@ export const Controls = ({
   useEffect(() => {
     getPresets();
   }, []);
+
+  useEffect(()=>{
+    if (timeSignature % 4 === 0) {
+      setTimeTop(timeSignature/4)
+      setTimeBot(4)
+    } else if (timeSignature % 2 === 0) {
+      setTimeTop(timeSignature/2)
+      setTimeBot(8)
+    } else {
+      setTimeTop(timeSignature)
+      setTimeBot(16)
+    }
+  },[timeSignature])
 
   const TogglePreset = (increment) => {
     //find the next presets index postion based off of the increment value
@@ -242,7 +256,7 @@ export const Controls = ({
             id={"arrow-left"}
           />
           <div className={"menu-screen"} id={`preset--${presetObj.id}`}>
-            {presetObj.name} {tempo}
+            {presetObj.name} {timeTop}/{timeBot} {tempo}
           </div>
           <img
             alt=""
