@@ -41,7 +41,8 @@ function playSample(audioContext, audioBuffer, time) {
   return sampleSource;
 }
 
-export const Player = ({ presetObj, playing, counterTimeValue }) => {
+export const Player = ({ presetObj, playing, counterTimeValue, patternLength}) => {
+
   const stepHead = (currentStep, seqLength) => {
     if (currentStep === 0) {
       if (
@@ -80,15 +81,15 @@ export const Player = ({ presetObj, playing, counterTimeValue }) => {
       if (bd[counter]) {
         playSample(audioContext, kick, futureTickTime);
       }
-
-      stepHead(counter, 15);
+      stepHead(counter, patternLength - 1);
       futureTickTime += counterTimeValue;
       counter++;
-      if (counter > 15) {
+      if (counter > patternLength - 1) {
         counter = 0;
       }
     }
   };
+
   useEffect(() => {
     let timer;
     if (playing) {
@@ -101,6 +102,6 @@ export const Player = ({ presetObj, playing, counterTimeValue }) => {
       counter = 0;
     }
     return () => clearInterval(timer);
-  }, [playing, presetObj, counterTimeValue]);
+  }, [playing, presetObj, counterTimeValue, patternLength]);
   return "";
 };

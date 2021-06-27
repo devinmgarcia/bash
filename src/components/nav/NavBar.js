@@ -13,7 +13,7 @@ export const NavBar = () => {
 
     return (
         <div className="navbar">
-            <div className="logo">BASH</div>
+            {/* <div className="logo">BASH</div> */}
             <div className="right-container">
             <div onClick={Logout} className="logout right-side-item">
                 <img className="logout-icon" src={logout} alt="" />
