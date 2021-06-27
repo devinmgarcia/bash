@@ -1,4 +1,4 @@
-![alt text](https://github.com/[devinmgarcia]/[bash]/blob/[main]/screenshot.png?raw=true)
+![](src/images/screenshot.png)
 
 # BASH
 
