@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext } from "react";
 import { SequenceContext } from "../sequences/SequenceProvider";
 
-const api = "http://localhost:8088";
+const api = "https://bash-api-5k3au.ondigitalocean.app";
 
 export const PresetContext = createContext();
 
