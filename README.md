@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+![alt text](https://github.com/[devinmgarcia]/[bash]/blob/[main]/screenshot.png?raw=true)
+
+# BASH
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
