@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
 
-const api = "http://localhost:8088";
+const api = "https://bash-api-5k3au.ondigitalocean.app";
 
 export const Login = (props) => {
   const email = useRef();
