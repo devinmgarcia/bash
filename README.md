@@ -1,4 +1,4 @@
-![](src/images/screenshot.png)
+![](src/images/Bash.gif)
 
 # BASH
 
