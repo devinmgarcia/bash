@@ -8,6 +8,9 @@ The user is presented with an intuitive interface that allows them to customize 
 
 ## Deployment
 
+[Check out the app here](https://bash-zmtv5.ondigitalocean.app)
+
+
 ## Technologies
 
 * Javascript / HTML / CSS
