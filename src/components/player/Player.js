@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import kickUrl from "../../samples/bass_sample.mp3";
-import snareUrl from "../../samples/clap_sample.mp3";
-import hihatUrl from "../../samples/hh_sample.mp3";
+// import kickUrl from "../../samples/bass_sample.mp3";
+import kickUrl from "../../samples/kick-glowstix.wav";
+// import snareUrl from "../../samples/clap_sample.mp3";
+import snareUrl from "../../samples/snare-arena.wav";
+// import hihatUrl from "../../samples/hh_sample.mp3";
+import hihatUrl from "../../samples/closed-hh1.wav";
+
+import rideUrl from "../../samples/ride-bro.wav";
 
 // let audioContext = new AudioContext();
 
@@ -25,6 +30,7 @@ let counter = 0;
 let kick;
 let snare;
 let hihat;
+let ride;
 
 async function getFile(audioContext, filepath) {
   const response = await fetch(filepath);
@@ -47,6 +53,9 @@ setupSample(snareUrl).then((sample) => {
 });
 setupSample(hihatUrl).then((sample) => {
   hihat = sample;
+});
+setupSample(rideUrl).then((sample) => {
+  ride = sample;
 });
 
 function playSample(audioContext, audioBuffer, time) {
@@ -84,9 +93,10 @@ export const Player = ({ presetObj, playing, counterTimeValue, patternLength}) =
   };
 
   const Scheduler = (preset) => {
-    const hh = preset.sequences[0].pattern;
-    const sd = preset.sequences[1].pattern;
-    const bd = preset.sequences[2].pattern;
+    const rd = preset.sequences[0].pattern;
+    const hh = preset.sequences[1].pattern;
+    const sd = preset.sequences[2].pattern;
+    const bd = preset.sequences[3].pattern;
     if (futureTickTime < audioContext.currentTime + 0.1) {
       if (hh[counter]) {
         playSample(audioContext, hihat, futureTickTime);
@@ -96,6 +106,9 @@ export const Player = ({ presetObj, playing, counterTimeValue, patternLength}) =
       }
       if (bd[counter]) {
         playSample(audioContext, kick, futureTickTime);
+      }
+      if (rd[counter]) {
+        playSample(audioContext, ride, futureTickTime);
       }
       stepHead(counter, patternLength - 1);
       futureTickTime += counterTimeValue;

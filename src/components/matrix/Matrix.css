@@ -94,3 +94,49 @@
     background-color: rgb(60, 255, 0);
     background-image: radial-gradient(rgb(255 214 0 / 59%), transparent);
 }
+
+@media only screen and (max-width: 1300px) {
+    .pad-1 {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .pad-2 {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .pad-3 {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .pad-4 {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .pad-inactive {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+}
+
+@media only screen and (max-width: 1160px) {
+    .pad-1 {
+        height: 3rem;
+        width: 3rem;
+    }
+    .pad-2 {
+        height: 3rem;
+        width: 3rem;
+    }
+    .pad-3 {
+        height: 3rem;
+        width: 3rem;
+    }
+    .pad-4 {
+        height: 3rem;
+        width: 3rem;
+    }
+    .pad-inactive {
+        height: 3rem;
+        width: 3rem;
+    }
+}

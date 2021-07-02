@@ -110,25 +110,31 @@ export const Controls = ({
         userId: parseInt(localStorage.getItem("bash_user")),
       };
 
+      const RDSequenceObj = {
+        inst: "rd",
+        pattern: preset.sequences[0].pattern,
+        presetId: [...globalPresets].pop().id + 1,
+      };
+
       const HHSequenceObj = {
         inst: "hh",
-        pattern: preset.sequences[0].pattern,
+        pattern: preset.sequences[1].pattern,
         presetId: [...globalPresets].pop().id + 1,
       };
 
       const SDSequenceObj = {
         inst: "sd",
-        pattern: preset.sequences[1].pattern,
+        pattern: preset.sequences[2].pattern,
         presetId: [...globalPresets].pop().id + 1,
       };
 
       const BDSequenceObj = {
         inst: "bd",
-        pattern: preset.sequences[2].pattern,
+        pattern: preset.sequences[3].pattern,
         presetId: [...globalPresets].pop().id + 1,
       };
 
-      addPreset(newPreset, HHSequenceObj, SDSequenceObj, BDSequenceObj);
+      addPreset(newPreset,RDSequenceObj, HHSequenceObj, SDSequenceObj, BDSequenceObj);
     } else if (preset.userEditable) {
 
       const editedPreset = {

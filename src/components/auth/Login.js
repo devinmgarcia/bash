@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
 
-const api = "https://bash-api-5k3au.ondigitalocean.app";
+// const api = "https://bash-api-5k3au.ondigitalocean.app";
+const api = "http://localhost:8088";
 
 export const Login = (props) => {
   const email = useRef();
@@ -43,7 +44,12 @@ export const Login = (props) => {
       <section className="login-section">
       <div className="title-center">
         <div className="title-wrapper">
-          <section className="login-title">BASH</section>
+          <section className="login-title">
+            <div className="B">B</div>
+            <div className="A">A</div>
+            <div className="S">S</div>
+            <div className="H">H</div>
+            </section>
           <section className="login-subtext">by: Devin Garcia</section>
         </div>
       </div>
