@@ -5,7 +5,7 @@ import { PresetContext } from "./PresetProvider";
 import { Player } from "../player/Player";
 
 export const Preset = () => {
-  const { presets, getPresets, setPresets } = useContext(PresetContext);
+  const { presets, getPresets } = useContext(PresetContext);
   const [preset, setPreset] = useState({ name: "", sequences: [] });
   const [playing, setPlaying] = useState("");
   let [tempo, setTempo] = useState(120);
@@ -14,7 +14,8 @@ export const Preset = () => {
   let [patternLength, setPatternLength] = useState(16);
   let [timeSignature, setTimeSignature] = useState(16);
   let [initialRun, setInitialRun] = useState(true)
-  const [tempTempo, setTempTempo] = useState(16)
+  // const [samples, setSamples] = useState()
+  // const [tempTempo, setTempTempo] = useState(16)
 
   useEffect(() => {
     getPresets();

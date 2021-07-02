@@ -25,10 +25,30 @@
 }
 
 .login-title {
+    display: flex;
     margin-top: 5rem;
-    color: white;
     font-size: 10rem;
     text-align: center;
+}
+
+.B {
+    color: rgb(255, 0, 0);
+    text-shadow: -2px 2px 4px #000000;
+}
+
+.A {
+    color: rgb(255, 94, 0);
+    text-shadow: -2px 2px 4px #000000;
+}
+
+.S {
+    color: rgb(255, 208, 0);
+    text-shadow: -2px 2px 4px #000000;
+}
+
+.H {
+    color: rgb(60, 255, 0);
+    text-shadow: -2px 2px 4px #000000;
 }
 
 .form-wrapper {
