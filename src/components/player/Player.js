@@ -8,16 +8,13 @@ import hihatUrl from "../../samples/closed-hh1.wav";
 
 import rideUrl from "../../samples/ride-bro.wav";
 
-// let audioContext = new AudioContext();
 
 var AudioContext = window.AudioContext // Default
     || window.webkitAudioContext // Safari and old versions of Chrome
     || false; 
 
 if (AudioContext) {
-    // Do whatever you want using the Web Audio API
     var audioContext = new AudioContext;
-    // ...
 } else {
     // Web Audio API is not supported
     // Alert the user
