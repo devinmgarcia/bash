@@ -14,8 +14,6 @@ export const Preset = () => {
   let [patternLength, setPatternLength] = useState(16);
   let [timeSignature, setTimeSignature] = useState(16);
   let [initialRun, setInitialRun] = useState(true)
-  // const [samples, setSamples] = useState()
-  // const [tempTempo, setTempTempo] = useState(16)
 
   useEffect(() => {
     getPresets();
