@@ -23,7 +23,6 @@ export const Preset = () => {
 
   useEffect(() => {
     if (initialRun){
-      console.log("initial run")
       const initialPreset = presets[0] || { name: "", sequences: [] };
       setPreset(initialPreset);
     } else {
