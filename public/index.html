@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-      <meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="icon" href="../src/images/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,7 +9,11 @@
     <meta name="description" content="A browser based drum sequencer" />
     <meta name="title" property="og:title" content="Bash" />
     <meta property="og:type" content="Website" />
-    <meta name="image" property="og:image" content="https://live.staticflickr.com/65535/51295748390_6fbd1828b2_z.jpg" />
+    <meta
+      name="image"
+      property="og:image"
+      content="https://live.staticflickr.com/65535/51295748390_6fbd1828b2_z.jpg"
+    />
     <meta name="description" property="og:description" content="Bash" />
     <meta name="author" content="Devin Garcia" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
@@ -29,10 +32,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Bash</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="root"></div>
-</body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.7.1/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.7.1/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+  </body>
 </html>
