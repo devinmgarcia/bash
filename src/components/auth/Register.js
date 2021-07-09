@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
 
-const api = 'https://dmg-bash-api.herokuapp.com/'
+const api = 'https://dmg-bash-api.herokuapp.com'
 // const api = "http://localhost:8088";
 
 
