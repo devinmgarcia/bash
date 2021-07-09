@@ -317,12 +317,12 @@ export const Controls = ({
             min={"30"}
             max={"300"}
             defaultValue={"120"}
-            class={"slider"}
+            className={"slider"}
             id={"myRange"}
             onChange={TempoSlider}
           />
         </div>
-        <div class={"transport"}>
+        <div className={"transport"}>
           <img
             onClick={Play}
             className={"controls playButton"}

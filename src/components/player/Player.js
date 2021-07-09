@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import {useEffect } from "react";
 // import kickUrl from "../../samples/bass_sample.mp3";
 import kickUrl from "../../samples/kick-glowstix.wav";
 // import snareUrl from "../../samples/clap_sample.mp3";
@@ -8,19 +8,13 @@ import hihatUrl from "../../samples/closed-hh1.wav";
 
 import rideUrl from "../../samples/ride-bro.wav";
 
-// let audioContext = new AudioContext();
-
 var AudioContext = window.AudioContext // Default
     || window.webkitAudioContext // Safari and old versions of Chrome
     || false; 
 
 if (AudioContext) {
-    // Do whatever you want using the Web Audio API
-    var audioContext = new AudioContext;
-    // ...
-} else {
-    // Web Audio API is not supported
-    // Alert the user
+    var audioContext = new AudioContext; 
+} else {  
     alert("Sorry, but the Web Audio API is not supported by your browser. Please, consider upgrading to the latest version or downloading Google Chrome or Mozilla Firefox");
 }
 
