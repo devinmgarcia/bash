@@ -156,3 +156,27 @@ input[type="range"]::-moz-range-thumb {
     margin-top: -13px;
     border-radius: 30%;
 }
+
+@media only screen and (max-width: 1000px) {
+    .menu-screen {
+        width: 18rem;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .menu-screen {
+        width: 16rem;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .menu-screen {
+        width: 14rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .menu-screen {
+        width: 12rem;
+    }
+}
