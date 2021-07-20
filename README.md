@@ -8,7 +8,7 @@ The user is presented with an intuitive interface that allows them to customize 
 
 ## Deployment
 
-[Check out the app here](https://dmg-bash.herokuapp.com)
+[Check out the app here](https://bash-pagrh.ondigitalocean.app)
 
 
 ## Technologies
