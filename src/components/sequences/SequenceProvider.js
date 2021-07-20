@@ -1,6 +1,8 @@
 import React, { useState, createContext } from "react";
 
-const api = "https://dmg-bash-api.herokuapp.com";
+
+const api = "https://bash-api-i3pd2.ondigitalocean.app";
+
 // const api = "http://localhost:8088";
 export const SequenceContext = createContext();
 
