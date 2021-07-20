@@ -89,6 +89,7 @@ export const MatrixGenerator = ({ presetObj, setPreset, patternLength }) => {
           {sequences.map((sequence) => {
             return (
               <div
+                key={sequence.id}
                 onClick={togglePad}
                 id={`${sequence.inst}--${i}`}
                 className={`${'pad-'}${beat} ${sequence.pattern[i] ? `active${beat}` : ""}`}
@@ -98,12 +99,12 @@ export const MatrixGenerator = ({ presetObj, setPreset, patternLength }) => {
         </div>
       );
     }
-    return <div class="drums">{jsx}</div>
+    return <div className="drums">{jsx}</div>
   };
 
   return (
     <>
-        <Matrix selectedPreset={presetObj} />    
+        <Matrix key={presetObj.id} selectedPreset={presetObj} />    
     </>
   );
 };
