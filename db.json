@@ -1,0 +1,394 @@
+{
+  "users": [
+    {
+      "email": "global@presets.com",
+      "name": "Global Presets",
+      "id": 0
+    },
+    {
+      "email": "devin@garcia.com",
+      "name": "Devin Garcia",
+      "id": 1
+    }
+  ],
+  "presets": [
+    {
+      "id": 1,
+      "name": "Rock",
+      "userEditable": false,
+      "userId": 0
+    },
+    {
+      "id": 2,
+      "name": "Shuffle",
+      "userEditable": true,
+      "userId": 0
+    },
+    {
+      "id": 3,
+      "name": "Samba",
+      "userEditable": false,
+      "userId": 0
+    },
+    {
+      "name": "User Preset",
+      "userEditable": true,
+      "userId": 0,
+      "id": 4
+    }
+  ],
+  "sequences": [
+    {
+      "id": 1,
+      "inst": "rd",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 1
+    },
+    {
+      "id": 2,
+      "inst": "hh",
+      "pattern": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "presetId": 1
+    },
+    {
+      "id": 3,
+      "inst": "sd",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "presetId": 1
+    },
+    {
+      "id": 4,
+      "inst": "bd",
+      "pattern": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 1
+    },
+    {
+      "inst": "rd",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 2,
+      "id": 9
+    },
+    {
+      "inst": "hh",
+      "pattern": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "presetId": 2,
+      "id": 10
+    },
+    {
+      "inst": "sd",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 2,
+      "id": 11
+    },
+    {
+      "inst": "bd",
+      "pattern": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 2,
+      "id": 12
+    },
+    {
+      "id": 5,
+      "inst": "rd",
+      "pattern": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "presetId": 3
+    },
+    {
+      "id": 6,
+      "inst": "hh",
+      "pattern": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "presetId": 3
+    },
+    {
+      "id": 7,
+      "inst": "sd",
+      "pattern": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "presetId": 3
+    },
+    {
+      "id": 8,
+      "inst": "bd",
+      "pattern": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "presetId": 3
+    },
+    {
+      "inst": "rd",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 4,
+      "id": 13
+    },
+    {
+      "inst": "hh",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 4,
+      "id": 14
+    },
+    {
+      "inst": "sd",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 4,
+      "id": 15
+    },
+    {
+      "inst": "bd",
+      "pattern": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "presetId": 4,
+      "id": 16
+    }
+  ]
+}

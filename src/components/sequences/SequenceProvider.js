@@ -1,9 +1,8 @@
 import React, { useState, createContext } from "react";
 
 
-const api = "https://bash-api-i3pd2.ondigitalocean.app";
 
-// const api = "http://localhost:8088";
+const api = "http://localhost:3000/api";
 export const SequenceContext = createContext();
 
 export const SequenceProvider = (props) => {
